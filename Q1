@@ -14,5 +14,5 @@ object main extends App{
             prime(n,denomenator+1)
         }
     }
-println(prime(8))
+println(prime(12))
 }
