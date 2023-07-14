@@ -1,22 +1,11 @@
-package Demo5
-
-object Q5 extends App{
-
-  def sumEvenn(num:Int): Int={
-    if (num <= 0)
-      0
-    else{
-      val current = if (num % 2 ==0)
-        num
-      else
-        num-1
-
-      current + sumEvenn(current - 2)
-
-    }
-
-
+object main extends App{
+def sumEven(n: Int): Int = {
+  if (n <= 0) {
+    0
+  } else {
+    val currentSum = if (n % 2 == 0) n else 0
+    currentSum + sumEven(n - 1)
   }
-  println(sumEvenn(7))
-
+}
+println(sumEven(8))
 }
