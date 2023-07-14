@@ -1,27 +1,20 @@
-package Demo5
+object main extends App{
 
-import scala.io.StdIn
-
-
-object Q2 extends App {
-
-  def prime(num:Int): Boolean = num match{
-    case x if x == 1 => false
-    case x if x == 2 => true
-    case x if (x > 10) && (x % 2 == 0 || x % 3 == 0 || x % 5 == 0 || x % 7 == 0) => false
-    case _: Int => true
-  }
-
-  def primeSeq(n:Int):Unit ={
-    if (n>1) {
-      primeSeq(n - 1)
-      if (prime(n)) println(n)
-      
+    def isPrime(num: Int): Boolean = {
+        if (num <= 1)
+            false
+        else if (num == 2)
+            true
+        else
+            !(2 to (num - 1)).exists(x => num % x == 0)
     }
 
-  }
-  println("Input an Integer")
-  private var value = StdIn.readInt()
-  primeSeq(value)
-  
+    def primeSeq(n: Int, current: Int = 2): Unit = {
+        if (current < n) {
+            if (isPrime(current))
+                print(s"$current ")
+            primeSeq(n, current + 1)
+        }
+    }
+primeSeq(13)
 }
