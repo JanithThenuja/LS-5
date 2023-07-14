@@ -1,21 +1,18 @@
-package Demo5
+object main extends App{
+    def prime(n:Int, denomenator:Int =2):Boolean = {
+        if(n<=1){
+            false
+        }
+        else if(n==denomenator) {
+            true
+        }
 
-import scala.io.StdIn
-object Q1 extends App{
-
-  println("Enter a string: ")
-
-  val InputInteger = StdIn.readInt()
-
-  private def Prime(num:Int): String ={
-    num match {
-    case x if x == 1 => "false"
-    case x if x == 2 => "true"
-    case x if (x > 10) && (x % 2 == 0 || x % 3 == 0 || x % 5 == 0 || x % 7 == 0) => "false"
-    case _: Int => "true"
+        else if(n% denomenator==0){
+            false
+        }
+        else {
+            prime(n,denomenator+1)
+        }
     }
-  }
-
-  println(Prime(InputInteger))
-
+println(prime(8))
 }
